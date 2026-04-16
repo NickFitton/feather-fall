@@ -1,29 +1,33 @@
 :root {
-  --bg: #f3eadf;
-  --bg-deep: #e7d8c8;
-  --panel: rgba(255, 250, 243, 0.94);
-  --line: rgba(75, 89, 95, 0.16);
-  --ink: #17212a;
-  --muted: #5e686f;
-  --accent: #b5571d;
-  --shadow:
-    0 24px 60px rgba(27, 37, 46, 0.11),
-    0 10px 24px rgba(27, 37, 46, 0.08);
+  --bg: #0f1419;
+  --bg-surface: #1a1f26;
+  --bg-raised: #222830;
+  --bg-hover: #2a3140;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(88, 166, 255, 0.4);
+  --ink: #e6edf3;
+  --muted: #7d8590;
+  --accent: #58a6ff;
+
+  --color-feathers: #f0883e;
+  --color-graphql: #58a6ff;
+  --color-error: #f85149;
+  --color-pending: #d29922;
 
   --font-sans:
-    'Avenir Next', 'Segoe UI', 'Helvetica Neue', 'Nimbus Sans', sans-serif;
-  --font-display:
-    'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica,
+    Arial, sans-serif;
   --font-mono:
-    'SFMono-Regular', 'IBM Plex Mono', 'Cascadia Code', Consolas, monospace;
+    ui-monospace, 'SFMono-Regular', 'SF Mono', 'Cascadia Code', Consolas,
+    monospace;
+
+  --row-height: 26px;
 
   font-family: var(--font-sans);
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 400;
   color: var(--ink);
-  background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.55), transparent 42%),
-    linear-gradient(180deg, var(--bg), var(--bg-deep));
+  background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,28 +48,6 @@ body {
   min-height: 100vh;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 0,
-      transparent calc(100% - 1px),
-      rgba(255, 255, 255, 0.18) calc(100% - 1px)
-    ),
-    linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(100% - 1px),
-      rgba(255, 255, 255, 0.14) calc(100% - 1px)
-    );
-  background-size: 32px 32px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.22), transparent 60%);
-  pointer-events: none;
-}
-
 button,
 input,
 select,
@@ -78,41 +60,31 @@ button {
 }
 
 #root {
-  width: min(1600px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 32px 0 48px;
-
-  @media (max-width: 720px) {
-    width: min(100% - 20px, 1600px);
-    padding: 20px 0 32px;
-  }
+  display: grid;
+  min-height: 100vh;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  line-height: 1.2;
   color: var(--ink);
 }
 
-h1 {
-  max-width: 14ch;
-  margin-bottom: 18px;
-  font-size: clamp(3rem, 2rem + 3vw, 5.3rem);
-}
-
-h2 {
-  font-size: clamp(2rem, 1.4rem + 1.2vw, 3rem);
-}
-
 p {
-  font-size: 16px;
+  font-size: 13px;
+  margin: 0;
 }
 
 a {
-  color: inherit;
+  color: var(--accent);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
 }
